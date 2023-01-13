@@ -35,39 +35,19 @@ Y la probamos en terminal node app.js y posteriormente en un navegador tecleamos
 
 Seguimos la guia de la api https://api.intra.42.fr/apidoc/guides/getting_started
 
-```bash
+```java
 const express = require("express");
-const axios = require("axios");
-const cors = require("cors");
 
 const app = express();
-const UID = "u-s4t2ud-c67ac67d4d99e5b0e02486a49882888bbf5bcad2e9ee8264eaec9334dc58b62f";
-const SECRET = "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";
-const URL42 = "https://profile.intra.42.fr/";
+const SECRET = "";
 
-app.use(cors({ credentials: true, origin: true }));
-
-app.get("/oauth/redirect", (req, res) => {
-  axios({
-    method: "POST",
-    url: `https://api.intra.42.fr/oauth/token?client_id=${UID}&client_secret=${SECRET}&code=${req.query.code}`,
-    headers: {
-      accept: "application/json",
-    },
-  }).then((reponse) => {
-    //const accessToken = response.data.accessToken;
-    res.redirect(
-      `http://localhost:3000?access_token=${response.data.accessToken}`
+app.get('/', (req, res) => {
+  res.redirect(
+      `https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-c67ac67d4d99e5b0e02486a49882888bbf5bcad2e9ee8264eaec9334dc58b62f&redirect_uri=https%3A%2F%2Fgithub.com%2Fbelenarbizu%2F42Hello-World&response_type=code&scope=public`
     );
-  })
 });
-/*app.post('/', function (req, res) {
-  res.send('[]Saludos desde express');
-});
-app.get('/', function (req, res) {
-  res.send('[]Saludos desde express');
-});*/
+
 app.listen(3000, () => {
- console.log("El servidor está inicializado en el puerto 3000");
+  console.log("El servidor está inicializado en el puerto 3000");
 });
 ```
