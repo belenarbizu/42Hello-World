@@ -33,8 +33,7 @@ app.listen(3000, () => {
 ```
 Y la probamos en terminal node app.js y posteriormente en un navegador tecleamos localhost:3000
 
-Seguimos la guia de la api https://api.intra.42.fr/apidoc/guides/getting_started
-
+Para la verificación Oauth2 copiamos la URI que nos da la app de la intra y hacemos un get que redireccione a esa URI desde el puerto 3000. Probamos de la misma forma que antes.
 ```java
 const express = require("express");
 
