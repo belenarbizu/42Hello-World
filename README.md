@@ -39,7 +39,6 @@ Seguimos la guia de la api https://api.intra.42.fr/apidoc/guides/getting_started
 const express = require("express");
 
 const app = express();
-const SECRET = "";
 
 app.get('/', (req, res) => {
   res.redirect(
