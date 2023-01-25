@@ -57,17 +57,18 @@ const axios = require("axios");
 
 const app = express();
 const clientID = "u-s4t2ud-c67ac67d4d99e5b0e02486a49882888bbf5bcad2e9ee8264eaec9334dc58b62f";
-const clientSecret = "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";
+const clientSecret = "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";
 
 app.get('/', (req, res) => {
   res.redirect(
-    `https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-c67ac67d4d99e5b0e02486a49882888bbf5bcad2e9ee8264eaec9334dc58b62f&redirect_uri=https%3A%2F%2Fgithub.com%2Fbelenarbizu%2F42Hello-World&response_type=code`
+    `https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-c67ac67d4d99e5b0e02486a49882888bbf5bcad2e9ee8264eaec9334dc58b62f&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth_callback&response_type=code`
     );
 });
 
-app.get('/oauth/token', (req, res) => {
+app.get('/oauth_callback', (req, res) => {
     const requestToken = req.query.code;
-    axios({
+    console.log(requestToken);
+    /*axios({
         method: "post",
         url: `https://api.intra.42.fr/oauth/token?grant_type=authorization_code&client_id=${clientID}&client_secret=${clientSecret}&code=${requestToken}`,
         headers: {
@@ -76,7 +77,7 @@ app.get('/oauth/token', (req, res) => {
     }).then((response) => {
         const accessToken = response.data.access_token;
         res.redirect(`https://github.com/belenarbizu/42Hello-World?access_token=${accessToken}`);
-    });
+    });*/
 });
 
 app.listen(3000, () => {
