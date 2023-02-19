@@ -30,11 +30,9 @@ app.listen(3000, () => {
  console.log("El servidor está inicializado en el puerto 3000");
 });
 ```
-Y la probamos en terminal node app.js y posteriormente en un navegador tecleamos localhost:3000
+La probamos en terminal node app.js y posteriormente en un navegador tecleamos localhost:3000
 
-Para la verificación Oauth2 copiamos la URI que nos da la app de la intra y hacemos un get que redireccione a esa URI desde el puerto 3000. Probamos de la misma forma que antes.
-
-Una vez hemos hecho la conexión, tenemos que generar el token. 
+Para la verificación Oauth2 copiamos la URI que nos da la app de la intra y hacemos un get que redireccione a esa URI desde el puerto 3000. Probamos de la misma forma que antes. Una vez hemos hecho la conexión, tenemos que generar el token. 
 
 Primero, instalamos las dependencias axios y oauth2. Axios nos permite realizar solicitudes HTTP y oauth2 lo utilizamos para manejar la verificación Oauth2. Después, creamos un objeto oauth2 y proporcionamos las credenciales de cliente necesarias. Utilizamos el método getAuthorizeUrl() de la librería Oauth2 que nos construye y devulve una URL de autorización (nos devuelve la misma que hay en la intra).
 
