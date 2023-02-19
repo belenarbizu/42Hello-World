@@ -48,3 +48,5 @@ Una vez se ha completado la solicitud por el token de acceso, nos devuelve, en c
 Ahora que tenemos el token, podemos hacer las peticiones a la API. En esta página podemos ver todas las peticiones que podemos hacer https://api.intra.42.fr/apidoc/2.0.html
 
 Para hacer una petición para obtener mis datos, tenemos que hacer una solicitud GET a la API de 42 utilizando esta URL: 'https://api.intra.42.fr/v2/me'. Si ha habido algún error, imprimimos el error por consola y si ha tenido éxito, imprime mis datos.
+
+Podemos hacer una petición para obtener los datos de otra persona. Hacemos una solicitud GET con la URL 'https://api.intra.42.fr/v2/users' y escogemos un id de cualquier persona. Volvemos a hacer la petición con la URL 'https://api.intra.42.fr/v2/users/id' intercambiando el id por el número escogido.
