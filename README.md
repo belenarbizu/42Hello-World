@@ -39,4 +39,8 @@ Una vez hemos hecho la conexión, tenemos que generar el token.
 
 Primero, instalamos las dependencias axios y oauth2. Axios nos permite realizar solicitudes HTTP y oauth2 lo utilizamos para manejar la verificación Oauth2. Después, creamos un objeto oauth2 y proporcionamos las credenciales de cliente necesarias. Utilizamos el método getAuthorizeUrl() de la librería Oauth2 que nos construye y devulve una URL de autorización (nos devuelve la misma que hay en la intra).
 
-Tenemos que cambiar la redirect URI a 'http://localhost:3000/oauth_callback' para poder obtener el token.
+Tenemos que cambiar la redirect URI a 'http://localhost:3000/oauth_callback' para poder obtener el token. Para poder obtenerlo, una vez realizamos la verificación, recogemos el code temporal que usaremos para cambiarlo por el token.
+
+Utilizamos el método getOAuthAccessToken() de la librería oauth que se utiliza para obtener un token de acceso después de haber obtenido un código de autorización válido. El método envía una solicitud al servidor deautorización con el código de autorización y la información del cliente. En este caso, los parámetros son "grant_type" que es authorization_code, "client_id", "client_secret", "code" y "redirect_uri".
+
+Una vez se ha completado la solicitud por el token de acceso, nos devuelve, en caso de error, un objeto de error en el parámetro "error". Si la solicitud ha tenido éxito, "accessToken" contiene el token de acceso y "refreshToken" contiene el token de actualización.
