@@ -38,15 +38,9 @@ app.get('/oauth_callback', (req, res) => {
       console.error(error);
       res.send('Error generating access token!');
     } else {
-      oauth2.get('https://api.intra.42.fr/v2/users?filter[first_name]=Belen', accessToken, function (err, result) {
-        if (err) {
-          console.log(err);
-          res.send('Error getting user information!');
-        } else {
-          console.log(result);
-          res.send('User information received successfully!');
-        }
-      });
+      console.log(accessToken);
+      console.log(refreshToken);
+      res.send('Access token generated successfully!');
     }
   });
 });
