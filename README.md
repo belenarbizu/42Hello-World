@@ -44,3 +44,5 @@ Tenemos que cambiar la redirect URI a 'http://localhost:3000/oauth_callback' par
 Utilizamos el método getOAuthAccessToken() de la librería oauth que se utiliza para obtener un token de acceso después de haber obtenido un código de autorización válido. El método envía una solicitud al servidor deautorización con el código de autorización y la información del cliente. En este caso, los parámetros son "grant_type" que es authorization_code, "client_id", "client_secret", "code" y "redirect_uri".
 
 Una vez se ha completado la solicitud por el token de acceso, nos devuelve, en caso de error, un objeto de error en el parámetro "error". Si la solicitud ha tenido éxito, "accessToken" contiene el token de acceso y "refreshToken" contiene el token de actualización.
+
+Ahora que tenemos el token, podemos hacer las peticiones a la API. En esta página podemos ver todas las peticiones que podemos hacer https://api.intra.42.fr/apidoc/2.0.html
